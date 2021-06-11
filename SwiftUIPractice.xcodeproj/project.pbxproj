@@ -13,8 +13,14 @@
 		1D5B91672671237A0022C7DE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D5B91662671237A0022C7DE /* Preview Assets.xcassets */; };
 		1D5B91722671237B0022C7DE /* SwiftUIPracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5B91712671237B0022C7DE /* SwiftUIPracticeTests.swift */; };
 		1D5B917D2671237B0022C7DE /* SwiftUIPracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5B917C2671237B0022C7DE /* SwiftUIPracticeUITests.swift */; };
-		1D5B918C267130D20022C7DE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5B918B267130D20022C7DE /* User.swift */; };
-		1D5B918E2671DA2A0022C7DE /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5B918D2671DA2A0022C7DE /* UsersViewModel.swift */; };
+		1D5B918E2671DA2A0022C7DE /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5B918D2671DA2A0022C7DE /* UserListViewModel.swift */; };
+		1D5B91972672FB5D0022C7DE /* UserListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5B91962672FB5D0022C7DE /* UserListItemView.swift */; };
+		1D5B919B267303650022C7DE /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5B919A267303650022C7DE /* UserDetailView.swift */; };
+		1D5B919E2673072F0022C7DE /* Users.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D5B919C2673072F0022C7DE /* Users.xcdatamodeld */; };
+		1D5B91A1267327670022C7DE /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5B91A0267327670022C7DE /* PersistenceController.swift */; };
+		1D5B91A7267335DC0022C7DE /* EntryFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5B91A6267335DC0022C7DE /* EntryFormView.swift */; };
+		1D5B91A9267343990022C7DE /* UserEntity+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5B91A8267343990022C7DE /* UserEntity+Additions.swift */; };
+		1D5B91AB267345580022C7DE /* UserListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5B91AA267345570022C7DE /* UserListViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +53,14 @@
 		1D5B91782671237B0022C7DE /* SwiftUIPracticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIPracticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D5B917C2671237B0022C7DE /* SwiftUIPracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPracticeUITests.swift; sourceTree = "<group>"; };
 		1D5B917E2671237B0022C7DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1D5B918B267130D20022C7DE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		1D5B918D2671DA2A0022C7DE /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
+		1D5B918D2671DA2A0022C7DE /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
+		1D5B91962672FB5D0022C7DE /* UserListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListItemView.swift; sourceTree = "<group>"; };
+		1D5B919A267303650022C7DE /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
+		1D5B919D2673072F0022C7DE /* Users.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Users.xcdatamodel; sourceTree = "<group>"; };
+		1D5B91A0267327670022C7DE /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		1D5B91A6267335DC0022C7DE /* EntryFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryFormView.swift; sourceTree = "<group>"; };
+		1D5B91A8267343990022C7DE /* UserEntity+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserEntity+Additions.swift"; sourceTree = "<group>"; };
+		1D5B91AA267345570022C7DE /* UserListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +111,9 @@
 		1D5B915E267123770022C7DE /* SwiftUIPractice */ = {
 			isa = PBXGroup;
 			children = (
+				1D5B919F2673073A0022C7DE /* CoreData */,
 				1D5B9190267248630022C7DE /* View */,
 				1D5B918F267248540022C7DE /* ViewModel */,
-				1D5B918A267130C60022C7DE /* Model */,
 				1D5B915F267123770022C7DE /* SwiftUIPracticeApp.swift */,
 				1D5B91632671237A0022C7DE /* Assets.xcassets */,
 				1D5B91682671237A0022C7DE /* Info.plist */,
@@ -122,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				1D5B91712671237B0022C7DE /* SwiftUIPracticeTests.swift */,
+				1D5B91AA267345570022C7DE /* UserListViewModelTests.swift */,
 				1D5B91732671237B0022C7DE /* Info.plist */,
 			);
 			path = SwiftUIPracticeTests;
@@ -136,18 +149,10 @@
 			path = SwiftUIPracticeUITests;
 			sourceTree = "<group>";
 		};
-		1D5B918A267130C60022C7DE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				1D5B918B267130D20022C7DE /* User.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		1D5B918F267248540022C7DE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				1D5B918D2671DA2A0022C7DE /* UsersViewModel.swift */,
+				1D5B918D2671DA2A0022C7DE /* UserListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -156,8 +161,21 @@
 			isa = PBXGroup;
 			children = (
 				1D5B9161267123770022C7DE /* ContentView.swift */,
+				1D5B91962672FB5D0022C7DE /* UserListItemView.swift */,
+				1D5B919A267303650022C7DE /* UserDetailView.swift */,
+				1D5B91A6267335DC0022C7DE /* EntryFormView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		1D5B919F2673073A0022C7DE /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				1D5B919C2673072F0022C7DE /* Users.xcdatamodeld */,
+				1D5B91A0267327670022C7DE /* PersistenceController.swift */,
+				1D5B91A8267343990022C7DE /* UserEntity+Additions.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,10 +307,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D5B91A1267327670022C7DE /* PersistenceController.swift in Sources */,
 				1D5B9162267123770022C7DE /* ContentView.swift in Sources */,
-				1D5B918E2671DA2A0022C7DE /* UsersViewModel.swift in Sources */,
+				1D5B91972672FB5D0022C7DE /* UserListItemView.swift in Sources */,
+				1D5B918E2671DA2A0022C7DE /* UserListViewModel.swift in Sources */,
+				1D5B919E2673072F0022C7DE /* Users.xcdatamodeld in Sources */,
+				1D5B919B267303650022C7DE /* UserDetailView.swift in Sources */,
+				1D5B91A7267335DC0022C7DE /* EntryFormView.swift in Sources */,
 				1D5B9160267123770022C7DE /* SwiftUIPracticeApp.swift in Sources */,
-				1D5B918C267130D20022C7DE /* User.swift in Sources */,
+				1D5B91A9267343990022C7DE /* UserEntity+Additions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D5B91722671237B0022C7DE /* SwiftUIPracticeTests.swift in Sources */,
+				1D5B91AB267345580022C7DE /* UserListViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,6 +630,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1D5B919C2673072F0022C7DE /* Users.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1D5B919D2673072F0022C7DE /* Users.xcdatamodel */,
+			);
+			currentVersion = 1D5B919D2673072F0022C7DE /* Users.xcdatamodel */;
+			path = Users.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1D5B9154267123770022C7DE /* Project object */;
 }

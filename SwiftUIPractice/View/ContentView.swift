@@ -8,49 +8,50 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var nameText = ""
-    @State private var ageText = ""
     
-    @EnvironmentObject var viewModel: UsersViewModel
-    @State private var showFields = false
+    @StateObject private var fields = EntryFields()
+    
+    @ObservedObject var viewModel: UserListViewModel
+    @Environment(\.managedObjectContext) var managedObjectContext
 
+    @State private var showFields = false
+    
+    //Core Data
+    @FetchRequest(
+        entity: UserEntity.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \UserEntity.name, ascending: true),
+            NSSortDescriptor(keyPath: \UserEntity.age, ascending: false)
+        ]
+    ) var users: FetchedResults<UserEntity>
+    
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading) {
                     if showFields {
-                        VStack(alignment: .center) {
-                            TextField("Name", text: $nameText).textFieldStyle(RoundedBorderTextFieldStyle())
-                            
-                            TextField("Age", text: $ageText).textFieldStyle(RoundedBorderTextFieldStyle())
-                            
-                            Button(action: {
-                                viewModel.addUser(name: nameText, age: ageText)
-                            }, label: {
-                                Text("Submit")
-                            })
-                            .disabled(nameText.isEmpty || ageText.isEmpty)
-                            .padding()
-                        }
+                        EntryFormView(name: $fields.name,
+                                      age: $fields.age,
+                                      designation: $fields.designation)
+                        
+                        Button(action: {
+                            viewModel.addUser(name: fields.name,
+                                              age: fields.age,
+                                              designation: fields.designation)
+                        }, label: {
+                            Text("Submit")
+                        })
+                        .disabled(fields.name.isEmpty || fields.age.isEmpty || fields.designation.isEmpty)
                         .padding()
                     }
                     
                     VStack(alignment: .leading) {
-                        ForEach(viewModel.users) { user in
-                            VStack(alignment: .leading) {
-                                Text(user.name)
-                                Text(user.age)
-                            }
-                            .padding(5)
+                        ForEach(users) { user in
+                            UserListItemView()
+                                .environmentObject(user)
                         }
                     }
-                    .frame(
-                        maxWidth: .infinity,
-                        maxHeight: .infinity,
-                        alignment: .topLeading
-                    )
-                    
-                    Spacer()
+                    .padding()
                 }
             }
             .frame(
@@ -58,7 +59,6 @@ struct ContentView: View {
                 maxHeight: .infinity,
                 alignment: .topLeading
             )
-            .padding()
             .navigationTitle("Users")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -75,10 +75,8 @@ struct ContentView: View {
 #if DEBUG
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let usersViewModel = UsersViewModel()
-        usersViewModel.createMockData()
-        return ContentView()
-            .environmentObject(usersViewModel)
+        let usersViewModel = UserListViewModel(context: PersistenceController.preview.container.viewContext)        
+        return ContentView(viewModel: usersViewModel)
     }
 }
 #endif
